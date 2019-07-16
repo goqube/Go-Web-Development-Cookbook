@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"log"
 	"strings"
 
@@ -19,6 +20,8 @@ func (s *Say) Hello(ctx context.Context, req *api.Request, rsp *api.Response) er
 	log.Print("Received Say.Hello request - Micro Greeter API")
 	name, ok := req.Get["name"]
 	if ok {
+		fmt.Println(name)
+
 		response, err := s.Client.Hello(ctx, &hello.Request{
 			Name: strings.Join(name.Values, " "),
 		})

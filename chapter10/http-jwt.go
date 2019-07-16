@@ -89,7 +89,7 @@ func main() {
 	muxRouter.HandleFunc("/get-token", getToken).Methods("GET")
 	muxRouter.Handle("/employees", jwtMiddleware.Handler(http.HandlerFunc(getEmployees))).Methods("GET")
 
-	err := http.ListenAndServe(CONN_HOST+":"+CONN_PORT, handlers.LoggingHandler(os.Stdout, router))
+	err := http.ListenAndServe(CONN_HOST+":"+CONN_PORT, handlers.LoggingHandler(os.Stdout, muxRouter))
 	if err != nil {
 		log.Fatal("error starting http server : ", err)
 		return

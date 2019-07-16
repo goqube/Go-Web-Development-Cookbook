@@ -3,6 +3,7 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -14,7 +15,7 @@ const (
 	CONN_HOST        = "localhost"
 	CONN_PORT        = "8080"
 	DRIVER_NAME      = "mysql"
-	DATA_SOURCE_NAME = "root:password@/mydb"
+	DATA_SOURCE_NAME = "root:chenchen@/mydb"
 )
 
 var db *sql.DB
@@ -45,6 +46,7 @@ func readRecords(w http.ResponseWriter, r *http.Request) {
 		var uid int
 		var name string
 		err = rows.Scan(&uid, &name)
+		fmt.Println(uid,name)
 		employee := Employee{Id: uid, Name: name}
 		employees = append(employees, employee)
 	}

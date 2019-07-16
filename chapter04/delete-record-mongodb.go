@@ -14,7 +14,8 @@ import (
 const (
 	CONN_HOST    = "localhost"
 	CONN_PORT    = "8080"
-	MONGO_DB_URL = "127.0.0.1"
+	//MONGO_DB_URL = "127.0.0.1"
+	MONGO_DB_URL = "mongodb://mongo:secret@127.0.0.1"
 )
 
 var session *mgo.Session

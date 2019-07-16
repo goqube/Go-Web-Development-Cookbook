@@ -16,6 +16,7 @@ const (
 var store *sessions.CookieStore
 
 func init() {
+	fmt.Println("init session store...")
 	store = sessions.NewCookieStore([]byte("secret-key"))
 }
 
